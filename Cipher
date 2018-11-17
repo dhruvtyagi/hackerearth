@@ -1,0 +1,39 @@
+//https://www.hackerearth.com/practice/basic-programming/input-output/basics-of-input-output/practice-problems/algorithm/cipher-1/
+#include<stdio.h>
+int main()
+{
+    char s[1000];
+    scanf("%s",s);
+    int i,k;
+    scanf("%d",&k);
+    for(i=0;s[i]!='\0';i++)
+    {
+        int t;
+        if(s[i]>=65 && s[i]<=90)
+        {
+            t=s[i]+k%26;
+            if(t<=90)
+                s[i]=t;
+            else
+                s[i]=64+t%90;
+        }
+        else if(s[i]>=48 && s[i]<=57)
+        {
+            t=s[i]+k%10;
+            if(t<=57)
+                s[i]=t;
+            else
+                s[i]=47+t%57;
+        }
+        else if(s[i]>=97 && s[i]<=122)
+        {
+            t=s[i]+k%26;
+            if(t<=122)
+                s[i]=t;
+            else
+                s[i]=96+t%122;
+        }
+    }
+    for(i=0;s[i]!='\0';i++)
+        printf("%c",s[i]);
+}
